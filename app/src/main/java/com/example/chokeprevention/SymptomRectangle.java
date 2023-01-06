@@ -9,6 +9,7 @@ public class SymptomRectangle {
     float rectangleX, rectangleY;
     Bitmap symptomRectangle;
     boolean filled = false;
+
     SymptomRectangle (Context context, float rectangleX, float rectangleY) {
 
         this.rectangleX = rectangleX;

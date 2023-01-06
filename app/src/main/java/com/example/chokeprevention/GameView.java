@@ -30,7 +30,7 @@ public class GameView extends View {
     private final long UPDATE_MILLIS = 30; // How fast update drawings on screen
     Paint textPaint = new Paint();
     Paint healthPaint = new Paint();
-    private int points = 90;
+    private int points = 0;
     private int life = 3;
     static int dWidth, dHeight; // Screen size
     private Random random;

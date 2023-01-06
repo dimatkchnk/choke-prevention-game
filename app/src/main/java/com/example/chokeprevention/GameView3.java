@@ -157,7 +157,7 @@ public class GameView3 extends View {
         if (touchX > fishBoneX && touchX < fishBoneX + fishBone.getWidth()
                 && fishBoneY < touchY && touchY < fishBoneY + fishBone.getHeight()) {
 
-            // Do not move if red circle
+            // Do not move fish bone if red circle on screen
             if (!move) {
                 Intent intent = new Intent(context, GameOverThirdLevel.class);
                 context.startActivity(intent);

@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class Symptom {
 
@@ -43,39 +44,41 @@ public class Symptom {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.choke1);
                 x = false;
                 this.isChokeSymptom = true;
-                counter++;
+
             } else if (counter == 2) {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.choke2);
                 x = false;
                 this.isChokeSymptom = true;
-                counter++;
+
             } else if (counter == 4) {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.choke3);
                 x = false;
                 this.isChokeSymptom = true;
-                counter++;
+
             }
         } else {
             if (counter == 1) {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.not_choke1);
                 x = true;
                 this.isChokeSymptom = false;
-                counter++;
+
             } else if (counter == 3) {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.not_choke2);
                 x = true;
                 this.isChokeSymptom = false;
-                counter++;
+
             } else if (counter == 5) {
                 this.symptom = BitmapFactory.decodeResource(context.getResources(), R.drawable.not_choke3);
                 x = true;
                 this.isChokeSymptom = false;
-                counter = 0;
+
             }
         }
 
+        counter++;
+
         symptomX = random.nextInt(GameView2.dWidth - getSymptomWidth());
-        symptomY = random.nextInt(GameView2.dHeight - getSymptomHeight() - 400);
+        symptomY = ThreadLocalRandom.current().nextInt(300, GameView2.dHeight - getSymptomHeight() - 500);
 
     }
 }
