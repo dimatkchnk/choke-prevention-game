@@ -8,17 +8,42 @@ import android.graphics.Rect;
 import java.util.Random;
 import java.lang.Math;
 
+/**
+ * Food that appears and move on screen
+ */
 public class FoodElement {
 
+    /**
+     * Position and speed of element
+     */
     int elementX, elementY, elementSpeedX, elementSpeedY;
     private Bitmap element;
+
+    /**
+     * Random to define position
+     */
     private Random random;
+
+    /**
+     * Plus or minus points when collide
+     */
     boolean eatable;
-    boolean cutable; // if yes - user can remove element by click on 3 times
+
+    /**
+     * if yes - user can remove element by click on 3 times
+     */
+    boolean cutable;
+
+    /**
+     * To count clicks
+     */
     int clicks = 0;
 
 
-
+    /**
+     * Constructor
+     * @param context
+     */
     public FoodElement(Context context) {
 
         random = new Random();
@@ -26,9 +51,14 @@ public class FoodElement {
 
     }
 
+    /**
+     * Get element bitmap
+     * @return element bitmap
+     */
     public Bitmap getElement() {
         return this.element;
     }
+
 
     public int getElementWidth() {
         return  this.element.getWidth();
@@ -38,7 +68,10 @@ public class FoodElement {
         return  this.element.getHeight();
     }
 
-    // Function that define bitmap and position (x, y) of element
+    /**
+     * Function that define bitmap and position (x, y) of element. If element position equals to main character position, define once more
+     * @param context
+     */
     public void setPosition(Context context) {
 
         int r = (int)(Math.random() * 13);
@@ -104,7 +137,6 @@ public class FoodElement {
         this.elementY = random.nextInt(GameView.dHeight - getElementHeight());
 
 
-        // If element position is equal to main character position, define position once more
         if (GameView.mainCharacterX < this.elementX + getElementWidth() &&
                 GameView.mainCharacterX + GameView.mainCharacter.getWidth() > this.elementX &&
                 GameView.mainCharacterY < this.elementY + getElementHeight() &&

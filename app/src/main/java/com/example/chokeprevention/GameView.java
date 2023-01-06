@@ -19,32 +19,69 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Random;
 
+/**
+ * First level view class
+ */
 public class GameView extends View {
 
     protected  static Bitmap background, mainCharacter;
+
+    /**
+     * Rect parameter to set background
+     */
     Rect rectBackground;
     Context context;
+
+    /**
+     * Instance to run game loop
+     */
     Handler handler;
     Runnable runnable;
+
     private final float TEXT_SIZE = 80;
-    private final long UPDATE_MILLIS = 30; // How fast update drawings on screen
+
+    /**
+     * How fast update drawings on screen
+     */
+    private final long UPDATE_MILLIS = 30;
+
+    /**
+     * Paintings to show health bar and current points
+     */
     Paint textPaint = new Paint();
     Paint healthPaint = new Paint();
+
     private int points = 0;
     private int life = 3;
-    static int dWidth, dHeight; // Screen size
-    private Random random;
+
+    /**
+     * Screen size
+     */
+    static int dWidth, dHeight;
+
+    /**
+     * Main character position
+     */
     protected static float mainCharacterX, mainCharacterY;
 
-    // Variables for TouchEvent function
+    /**
+     * Parameters for TouchEvent function
+     */
     private float oldX;
     private float oldY;
     private float oldCharacterX;
     private float oldCharacterY;
+
+    /**
+     * Arrays to keep food and effects bitmaps
+     */
     private ArrayList<FoodElement> elements = new ArrayList<>();
     private ArrayList<Effect> effects = new ArrayList<>();
 
-
+    /**
+     * Constructor that creates view and runs game loop
+     * @param context to allow access to resources
+     */
     public GameView(Context context) {
         super(context);
         this.context = context;
@@ -60,7 +97,6 @@ public class GameView extends View {
         rectBackground = new Rect(0, 0, dWidth, dHeight);
 
 
-        // Create and run game loop
         handler = new Handler();
         runnable = new Runnable() {
             @Override
@@ -84,8 +120,10 @@ public class GameView extends View {
     }
 
 
-
-    // Draw all bitmaps
+    /**
+     * Draw all bitmaps, check position of elements, detect collision, start next level or game over
+     * @param canvas is used to draw bitmaps
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -172,7 +210,11 @@ public class GameView extends View {
     }
 
 
-    // Function that allows moving main character
+    /**
+     * Function that allows moving main character, count clicks on food bitmaps, when 3 - element disappears and appear two new
+     * @param event is used to detect touch
+     * @return is not used
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float touchX = event.getX();

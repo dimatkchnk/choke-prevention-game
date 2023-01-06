@@ -10,17 +10,27 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+
+/**
+ * Game over menu class
+ */
 public class GameOver extends AppCompatActivity {
 
-
-
+    /**
+     * Place where to show points (connect with TextView in game_over.xml)
+     */
     TextView tvPoints;
     SharedPreferences sharedPreferences;
+
+    /**
+     * Initialization method. Different game-over views depending on current user level
+     * @param savedInstanceState
+     */
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // Different game-over screens depending on current user level
+
         if (LevelPassed.currLevel == 0) {
             setContentView(R.layout.game_over);
             tvPoints = findViewById(R.id.tvPoints);
@@ -35,7 +45,10 @@ public class GameOver extends AppCompatActivity {
 
     }
 
-    // Restart button function (start from level one)
+    /**
+     * Restart button function (start from level one)
+     * @param view Current level view
+     */
     public void restart(View view) {
 
         Intent intent = new Intent(GameOver.this, MainActivity.class);
@@ -45,7 +58,10 @@ public class GameOver extends AppCompatActivity {
 
     }
 
-    // Exit button function
+    /**
+     * Exit button function
+     * @param view Current level view.
+     */
     public void exit(View view) { finish(); }
 
 }

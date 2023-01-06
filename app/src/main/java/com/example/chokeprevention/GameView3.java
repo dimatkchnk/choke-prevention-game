@@ -18,6 +18,10 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * Third level view class
+ * @see GameView
+ */
 public class GameView3 extends View {
 
     private Bitmap background;
@@ -46,12 +50,27 @@ public class GameView3 extends View {
     float oldFishBoneX, oldFishBoneY;
 
     Random r = new Random();
-    int interval; // time
-    static int mseconds = 0; // To count time
-    static boolean changeMouth = false; // Mouth bitmap frame state
+
+    /**
+     * Time
+     */
+    int interval;
+
+    /**
+     * To count time
+     */
+    static int mseconds = 0;
+
+    /**
+     * Mouth bitmap frame state
+     */
+    static boolean changeMouth = false;
     static boolean move;
 
-
+    /**
+     * Constructor that creates view and runs game loop
+     * @param context to allow access to resources
+     */
     public GameView3(Context context) {
         super(context);
         this.context = context;
@@ -103,6 +122,13 @@ public class GameView3 extends View {
 
     }
 
+    /**
+     * Draw all bitmaps, check position bitmaps, detect collision, end game or game over
+     * Check what to draw: if user didn't touch - draw first mouth frame
+     *                     if user touched - draw second mouth frame, red circle and start counting time (mseconds)
+     *                     if user touched and time equal to the interval passed - draw green circle and let user move fish bone
+     * @param canvas is used to draw bitmaps
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -138,7 +164,11 @@ public class GameView3 extends View {
 
 
 
-
+    /**
+     * Function that allows moving fish bone, detects collision, checks game state
+     * @param event is used to detect touch
+     * @return is not used
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 

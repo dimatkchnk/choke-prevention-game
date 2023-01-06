@@ -16,6 +16,10 @@ import android.view.View;
 
 import java.util.ArrayList;
 
+/**
+ * Second level view class
+ * @see GameView
+ */
 public class GameView2 extends View {
 
     private Bitmap background;
@@ -32,14 +36,24 @@ public class GameView2 extends View {
     float oldSymptomX, oldSymptomY;
     boolean touched = false;
 
-    static int goodChoices = 0; // Variable to determine if user doing all in right way
+    /**
+     * Parameter to determine if user doing all in right way
+     */
+    static int goodChoices = 0;
 
     ArrayList<SymptomRectangle> bigRectangles = new ArrayList<>();
     ArrayList<SmallRectangle> smallRectangles = new ArrayList<>();
     ArrayList<Letter> letters = new ArrayList<>();
 
+    /**
+     * How many rectangles are filled
+     */
     int filledRectangles = 0;
 
+    /**
+     * Constructor that creates view and runs game loop
+     * @param context to allow access to resources
+     */
     public GameView2(Context context) {
         super(context);
         this.context = context;
@@ -92,6 +106,10 @@ public class GameView2 extends View {
         }
     }
 
+    /**
+     * Draw all bitmaps, check position humans and letters, detect collision, check how many filled rectangles etc., start next level or game over
+     * @param canvas is used to draw bitmaps
+     */
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -204,7 +222,11 @@ public class GameView2 extends View {
 
 
 
-    // Function that allows moving symptoms
+    /**
+     * Function that allows moving humans and letters
+     * @param event is used to detect touch
+     * @return is not used
+     */
     @Override
     public boolean onTouchEvent(MotionEvent event) {
 

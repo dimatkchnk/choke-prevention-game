@@ -4,12 +4,31 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+
+/**
+ * Small rectangles class, extending big rectangles
+ * @see SymptomRectangle
+ */
 public class SmallRectangle extends SymptomRectangle{
 
     Bitmap smallRectangle;
+
+    /**
+     * Specify different pos parameter for rectangles
+     */
     static int counter = 0;
+
+    /**
+     * Is used to check if letter sequence is correct
+     */
     int pos;
 
+    /**
+     * Constructor that attributes bitmap to rectangle instance
+     * @param context is used to have access for resources
+     * @param rectangleX X value on screen
+     * @param rectangleY Y value on screen
+     */
     SmallRectangle(Context context, float rectangleX, float rectangleY) {
         super(context, rectangleX, rectangleY);
 

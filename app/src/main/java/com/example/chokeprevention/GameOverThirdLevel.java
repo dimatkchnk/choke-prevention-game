@@ -7,6 +7,10 @@ import android.view.View;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+/**
+ * Game over menu class same as GameOver. Created in need of working game properly
+ * @see GameOver
+ */
 public class GameOverThirdLevel extends AppCompatActivity {
 
     @Override
@@ -16,7 +20,6 @@ public class GameOverThirdLevel extends AppCompatActivity {
         setContentView(R.layout.second_game_over);
     }
 
-    // Restart button function (start from level one)
     public void restart(View view) {
 
         LevelPassed.currLevel = 0;
@@ -27,7 +30,6 @@ public class GameOverThirdLevel extends AppCompatActivity {
 
     }
 
-    // Exit button function
     public void exit(View view) {
         finish();
     }

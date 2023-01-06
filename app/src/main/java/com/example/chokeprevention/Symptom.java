@@ -7,20 +7,36 @@ import android.graphics.BitmapFactory;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
+/**
+ * Humans with symptoms class
+ */
 public class Symptom {
 
-
+    /**
+     * Position
+     */
     int symptomX, symptomY;
+
     private Bitmap symptom;
     private Random random;
 
+    /**
+     * Parameters are used to specify different bitmaps for each
+     */
     static boolean x = true;
     static int counter = 0;
 
     boolean isChokeSymptom;
+
+    /**
+     * When false (human in rectangle) - user cannot move human
+     */
     boolean movable = true;
 
-
+    /**
+     * Simple constructor that sets position of human
+     * @param context to have access to resources
+     */
     public Symptom(Context context) {
 
         random = new Random();
@@ -35,7 +51,10 @@ public class Symptom {
     public int getSymptomHeight() { return this.symptom.getHeight(); }
 
 
-    // Function that define bitmap and position (x, y) of symptom
+    /**
+     * Function that define bitmap and position (x, y) of symptom
+     * @param context to have access to resources
+     */
     private void setPosition(Context context) {
 
 
