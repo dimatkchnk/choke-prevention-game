@@ -1,4 +1,4 @@
-# choke-prevention-game
+# Choke prevention serious game
 
 "Serious" game type to prevent choking among children.
 
