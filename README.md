@@ -2,4 +2,5 @@
 
 "Serious" game type to prevent choking among children.
 
-Consist of three mini games teach basic rules to prevent choke and define symptoms.  
+Consists of three mini games that teach basic rules to prevent choking and define symptoms.
+
